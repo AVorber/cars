@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block car-detail %}
+    <div class="container">
+        <div class="row no-gutters bg-light position-relative">
+            {% for car in cars %}
+                <div class="col-md-6 mb-md-0 p-md-4">
+                    <img src="{{ car.image.url }}" class="w-100" alt="...">
+                </div>
+                <div class="col-md-6 position-static p-4 pl-md-0">
+                    <h5 class="mt-0">Brand: <u>{{ car.brand }}</u></h5>
+                    <p>Model: {{ car.model }}</p>
+                    <p>Year: {{ car.year }}</p>
+                    {% if car.transmission == 1 %}
+                        <p class="card-text">Transition: Manual </p>
+                    {% elif car.transmission == 2 %}
+                        <p class="card-text">Transition: Automatic </p>
+                    {% elif car.transmission == 3 %}
+                        <p class="card-text">Transition: Robot </p>
+                    {% endif %}
+                    <p>Color: {{ car.color }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

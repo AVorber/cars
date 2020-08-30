@@ -1,0 +1,36 @@
+body {
+    background-color: #72905b;
+}
+
+@media screen and (min-width: 992px) {
+    #carouselExampleIndicators {
+        top: -80px;
+    }
+}
+
+
+.card-img-top {
+    width: 100%;
+    max-height: 13rem;
+    height: auto;
+    align-self: center;
+}
+
+footer {
+    height: 500px;
+    color: #72905B;
+}
+
+@media screen and (min-width: 1024px) {
+    .footer {
+        padding-bottom: 120px;
+        padding-top: 90px;
+    }
+}
+
+.footer-nav {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1170px;
+    width: 90%;
+}

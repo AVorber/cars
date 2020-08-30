@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block index %}
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-warning" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <div class="row row-cols-2 row-cols-md-2 row-cols-lg-3">
+            {% for car in items %}
+                <div class="col mb-4">
+                    <div class="card">
+                        <img src="{{ car.image.url }}" class="card-img-top" alt="{{ car.brand }} {{ car.model }}">
+                        <div class="card-body">
+                            <a href="{% url 'cars:car-detail' car.slug %}" class="stretched-link"><h5
+                                    class="card-title">{{ car.brand }} {{ car.model }}</h5></a>
+                            {% if car.transmission == 1 %}
+                                <p class="card-text">Transition:
+                                    Manual<br>Year: {{ car.year }}<br>Color: {{ car.color }}</p>
+                            {% elif car.transmission == 2 %}
+                                <p class="card-text">Transition:
+                                    Automatic<br>Year: {{ car.year }}<br>Color: {{ car.color }}</p>
+                            {% elif car.transmission == 3 %}
+                                <p class="card-text">Transition: Robot<br>Year: {{ car.year }}<br>Color: {{ car.color }}
+                                </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% include 'pagination.html' %}
+    </div>
+
+{% endblock %}
